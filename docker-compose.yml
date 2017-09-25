@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  flux-service:
+    image: localhost:5000/anthonyikeda/flux-flix-service:0.0.1-SNAPSHOT
+    deploy:
+      mode: replicated
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      labels:
+        - traefik.backend=flux-flix-service
+        - traefik.frontend.rule=Host:flux.local
+        - traefik.docker.network=traefik-network
+        - traefik.port=8080
+    networks:
+      - traefik-network
+    environment:
+      SPRING_PROFILES_ACTIVE: swarm
+
+networks:
+  traefik-network:
+    external: true

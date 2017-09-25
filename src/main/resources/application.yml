@@ -1,1 +1,10 @@
 spring.data.mongodb.host: mongo.local
+
+---
+
+spring:
+  profiles: swarm
+  data:
+    mongodb:
+      host: mongo
+      

@@ -1,10 +1,11 @@
-FROM openjdk:8
+FROM openjdk:9-jre
 
-CMD mkdir /app
+CMD mkdir /myapp
 
-COPY flux-flix-service-0.0.1-SNAPSHOT.jar /app
+COPY flux-flix-service-0.0.1-SNAPSHOT.jar /myapp/
 
-WORKDIR /app
+WORKDIR /myapp
+
 EXPOSE 8080
 
-ENTRYPOINT "java -jar /app/flux-flix-service-0.0.1-SNAPSHOT.jar"
+ENTRYPOINT ["java", "-jar", "/myapp/flux-flix-service-0.0.1-SNAPSHOT.jar"]
