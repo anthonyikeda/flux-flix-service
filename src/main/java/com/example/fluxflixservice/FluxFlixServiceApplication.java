@@ -23,7 +23,7 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.*;
 
 @SpringBootApplication
-public class FluxFlixServiceApplication {
+public class    FluxFlixServiceApplication {
 
     @Bean
     CommandLineRunner demoData(MovieRepository movieRepository) {
